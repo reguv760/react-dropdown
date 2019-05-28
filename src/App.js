@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Toolbar from "./components/Toolbar/Toolbar";
+import SideDrawer from "./components/SideDrawer/SideDrawer";
+import Backdrop from "./components/Backdrop/Backdrop";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    sideDrawerOpen: false
+  };
+
+  // better code to handle toggle statements
+  // for current React and future versions
+  drawToggleClickHandler = () => {
+    this.setState(prevState => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
+
+  backDropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
+
+  render() {
+    let backdrop;
+
+    if (this.state.sideDrawerOpen) {
+      backdrop = <Backdrop click={this.backDropClickHandler} />;
+    }
+
+    return (
+      <div style={{ height: "100%" }}>
+        <Toolbar drawerClickHandler={this.drawToggleClickHandler} />
+
+        <SideDrawer show={this.state.sideDrawerOpen} />
+        {backdrop}
+
+        <main style={{ marginTop: "64px" }}>
+          <p>This is content area</p>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
