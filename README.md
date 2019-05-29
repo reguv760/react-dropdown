@@ -2,6 +2,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Based on Academind's [Youtube Tutorial](https://www.youtube.com/watch?v=l6nmysZKHFU)
 
+Demo: (https://reguv760.github.com/react-sidedrawer)[https://reguv760.github.com/react-sidedrawer]
+
+## Features
+
+_node-sass_
+
+- Enable SCSS functionality
+
+`npm i node-sass --save`
+
+_gh-pages_
+
+- Deploy build to GitHub
+
+`npm i gh-pages --save-dev`
+
 ## Available Scripts
 
 In the project directory, you can run:
